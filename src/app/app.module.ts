@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,7 @@ import { UsuarioServiceComponent } from './services/usuario/usuario-service.comp
 import { TokenComponent } from './services/token/token.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtinterceptService } from './services/token/jwtintercept.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,13 @@ import { JwtinterceptService } from './services/token/jwtintercept.service';
     AppRoutingModule,
     ArticulosModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     {
