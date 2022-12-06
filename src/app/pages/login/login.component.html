@@ -1,0 +1,22 @@
+
+<div>
+    <br/>
+    <h3 class="text-center" style="color:blue;">Inciciar Sesion</h3>
+    <br/>
+    <div class="card shadow-2-strong" style="border-radius: 1rem;">
+        <form>
+            <label>Usuario: </label>
+            <br/>
+            <input type="text" class="form-control" id="user_name" [(ngModel)]="usuario.User_name" name="user_name"/>
+            <br/>
+            <label>Contraseña: </label>
+            <br/>
+            <input type="password" class="form-control" id="password" [(ngModel)]="usuario.Password" name="password"/>
+        </form>
+    </div>
+    <br/>
+        <div class="text-center">
+            <button class="btn btn-primary" (click)="loginUsuario()">Iniciar Sesion</button>
+        </div>
+    <br/>
+</div>

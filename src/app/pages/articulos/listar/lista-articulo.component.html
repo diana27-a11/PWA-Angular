@@ -1,0 +1,27 @@
+
+<br/>
+<div class="card">
+    <div class="card-body"> 
+<h2 class="text-center" style="color:blue;"> ARTICULOS </h2> 
+<table class="table table-light"> 
+        <thead class="table table-dark">
+        <tr>
+            <th>cod_barras</th>
+            <th>Descripcion</th>
+            <th>precio_venta</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let articulo of articulos">
+          <th>{{articulo.Cod_barras}}</th>
+          <th>{{articulo.Descripcion}}</th>
+          <th>{{articulo.Precio_venta}}</th>
+          <td>
+            <button (click)="actualizarArticulo(articulo.Cod_barras)" class="btn btn-primary">Actualizar</button>
+            <button  class="btn btn-danger">Eliminar</button>
+          </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
